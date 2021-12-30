@@ -1,5 +1,6 @@
 
 Node Object: 
+    coordinates: Array[Int]
     isVisited: boolean
     adjacentNodes: Array[Nodes]
     type: String

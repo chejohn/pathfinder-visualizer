@@ -3,6 +3,9 @@ import Node from './Node';
 // we need to construct the graph
 const Graph = () => {
   const rep = [];
+  let startNode = null;
+  let endNode = null;
+  let bombNode = null;
 
   // frist: add the nodes to the graph
   for (let i = 0; i < 20; i++) {
@@ -35,7 +38,7 @@ const Graph = () => {
         } else if (coordinates === '[19,0]') {
           node.adjacentNodes.push(rep[18][0]);
           node.adjacentNodes.push(rep[19][1]);
-        } else if (coordinates === '[19, 50]') {
+        } else if (coordinates === '[19,50]') {
           node.adjacentNodes.push(rep[18][50]);
           node.adjacentNodes.push(rep[19][49]);
         }
@@ -65,7 +68,19 @@ const Graph = () => {
       }
     }
   }
-  return {rep};
+
+  const setStartNode = ([row, col]) => {
+    startNode = rep[row][col];
+  } 
+
+  const setEndNode = ([row, col]) => {
+    endNode = rep[row][col];
+  }
+
+  const setBombNode = ([row, col]) => {
+    bombNode = rep[row][col];
+  }
+  return {rep, setStartNode, setEndNode, setBombNode};
 } 
 
 export default Graph;
