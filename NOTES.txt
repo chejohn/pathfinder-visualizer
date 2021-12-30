@@ -3,12 +3,11 @@ Node Object:
     isVisited: boolean
     adjacentNodes: Array[Nodes]
     type: String
-    root: String
 
 Graph Object: 
     graph: Array[Nodes]
     startNode: Node
     endNode: Node
-    bombNode: Node
+    bombNode: Node  
     
     
