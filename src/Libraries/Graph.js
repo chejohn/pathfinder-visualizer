@@ -1,6 +1,6 @@
 import Node from './Node';
 
-// we need to construct the graph
+// graph constructor
 const Graph = () => {
   const rep = [];
   let startNode = null;
@@ -80,7 +80,11 @@ const Graph = () => {
   const setBombNode = ([row, col]) => {
     bombNode = rep[row][col];
   }
-  return {rep, setStartNode, setEndNode, setBombNode};
+
+  const setWallNode = ([row, col]) => {
+    rep[row][col].type = 'wallNode';
+  }
+  return {rep, setStartNode, setEndNode, setBombNode, setWallNode};
 } 
 
 export default Graph;
