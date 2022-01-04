@@ -1,3 +1,4 @@
+import Graph from "./Libraries/Graph/Graph";
 
 function App() {
   return (
