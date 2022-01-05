@@ -1,4 +1,4 @@
-import Graph from "./Libraries/Graph/Graph";
+import Graph from "./Libraries/Graph";
 
 function App() {
   return (

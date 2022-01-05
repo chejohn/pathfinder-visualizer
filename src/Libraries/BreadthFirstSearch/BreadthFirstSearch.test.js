@@ -1,5 +1,5 @@
-import breadthFirst from "./BreadthFirstSearch";
-import Graph from '../Graph/Graph';
+import breadthFirst from ".";
+import Graph from '../Graph';
 
 describe('breadth-first-search library', () => {
     const graph = Graph();
@@ -20,4 +20,4 @@ describe('breadth-first-search library', () => {
         endNode = graph3.rep[9][40];
         expect(breadthFirst(startNode, endNode)).toBeDefined();
     });
-})
+});

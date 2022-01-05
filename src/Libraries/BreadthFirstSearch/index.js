@@ -27,17 +27,15 @@ const solve = (startNode, endNode) => {
         if (JSON.stringify(currNode.coordinates) === JSON.stringify(endNode.coordinates)) break;
         const neighbours = currNode.adjacentNodes.filter(adjNode => adjNode.type !== 'wallNode' && !adjNode.isVisited);
         for (let adjNode of neighbours) {
-            if (!adjNode.isVisited) {
-                queue.push(adjNode);
-                adjNode.isVisited = true;
-                prev.set(adjNode.coordinates, currNode.coordinates);
-            }
+            queue.push(adjNode);
+            adjNode.isVisited = true;
+            prev.set(adjNode.coordinates, currNode.coordinates);
         }
     }
     return prev;
 }
 
-const breadthFirst = (startNode, endNode, bombNode='') => {
+const breadthFirst = (startNode, endNode, bombNode=null) => {
     const prev = solve(startNode, endNode);
     return reconstructPath(endNode, prev);
 }
