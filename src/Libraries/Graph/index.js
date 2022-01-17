@@ -1,4 +1,4 @@
-import Node from '../Node';
+import Node from '../tree-algos/Node';
 
 // graph constructor
 const Graph = () => {

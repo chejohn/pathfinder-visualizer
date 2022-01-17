@@ -1,4 +1,4 @@
-import reconstructPath from "../Helpers/reconstructPath";
+import {reconstructPath} from "../../Helpers";
 
 /*
 params: startNode; endNode

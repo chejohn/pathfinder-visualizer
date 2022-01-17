@@ -1,7 +1,7 @@
 /*
     A binary heap will be used to implement a priority queue
 */
-const PriorityQueue = () => {
+const PriorityQueue = (algoKind) => {
   const rep = [];
   let pqSize = 0;
 
@@ -32,8 +32,17 @@ const PriorityQueue = () => {
   };
 
   const less = (index1, index2) => {
-    if (rep[index1].distanceFromStart < rep[index2].distanceFromStart)
-      return true;
+    if (algoKind === 'A*') {
+      if (rep[index1].fVal < rep[index2].fVal)
+        return true;
+    }
+    else if (algoKind === 'dijkstra') {
+      if (rep[index1].distanceFromStart < rep[index2].distanceFromStart)
+        return true;
+    }
+    else if (algoKind === 'GBF') {
+      if (rep[index1].distanceFromStart < rep[index2].distanceFromStart) return true;
+    }
     return false;
   };
 
@@ -72,23 +81,40 @@ const PriorityQueue = () => {
     params: node from graph; integer distance of that node from starting point
     returns: true if priority queue is updated, false otherwise
     */
-  const updatePQNode = (graphNode, distanceFromOrigin) => {
+  const updatePQNode = (graphNode, value) => {
     let isUpdated = false;
     for (let i = 0; i < pqSize; i++) {
       if (JSON.stringify(rep[i].node.coordinates) === JSON.stringify(graphNode.coordinates)) {
-        if (distanceFromOrigin < rep[i].distanceFromStart) {
+        if (algoKind === 'dijkstra') {
+          if (value < rep[i].distanceFromStart) {
             isUpdated = true;
-            rep[i].distanceFromStart = distanceFromOrigin;
+            rep[i].distanceFromStart = value;
+          }
         }
-        const parentIndex = Math.floor((i - 1) / 2);
-        const leftIndex = 2 * i + 1;
-        const rightIndex = 2 * i + 2;
-        if (parentIndex >= 0 && less(i, parentIndex)) swim(i);
-        else if (
-          (leftIndex < pqSize && less(leftIndex, i)) ||
-          (rightIndex < pqSize && less(rightIndex, i))
-        )
-          sink(i);
+        else if (algoKind === 'A*') {
+          if (value < rep[i].fVal) {
+            isUpdated = true;
+            rep[i].fVal = value;
+          }
+        }
+        else if (algoKind === 'GBF') {
+          if (value < rep[i].heuristic) {
+            isUpdated = true;
+            rep[i].heuristic = value;
+          }
+        }
+        if (isUpdated) {
+          const parentIndex = Math.floor((i - 1) / 2);
+          const leftIndex = 2 * i + 1;
+          const rightIndex = 2 * i + 2;
+          if (parentIndex >= 0 && less(i, parentIndex)) swim(i);
+          else if (
+            (leftIndex < pqSize && less(leftIndex, i)) ||
+            (rightIndex < pqSize && less(rightIndex, i))
+          )
+            sink(i);
+        }
+        break;
       }
     }
     return isUpdated;
@@ -102,7 +128,18 @@ const PriorityQueue = () => {
     return pqSize;
   };
 
-  return { insert, poll, updatePQNode, queryPQSize, rep};
+  /*
+  params: priority queue node
+  returns: true if PQ node is in the priority queue; false othewise.
+  */
+  const contains = (pqNode) => {
+    for (let i = 0; i < pqSize; i++) {
+      if (JSON.stringify(pqNode.node.coordinates) === JSON.stringify(rep[i].node.coordinates)) return true;
+    }
+    return false;
+  }
+
+  return { insert, poll, updatePQNode, queryPQSize, contains,rep};
 };
 
 export default PriorityQueue;

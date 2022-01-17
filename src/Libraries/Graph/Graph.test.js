@@ -1,4 +1,4 @@
-import Graph from './Graph';
+import Graph from '.';
 
 describe('graph library', () => {
     const graph = Graph();

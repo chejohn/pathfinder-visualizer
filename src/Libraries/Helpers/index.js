@@ -1,4 +1,14 @@
 /*
+    returns: Manhattan (estimated) distance between current node and 
+             end node.
+*/
+const findHeuristic = (currentNode, endNode) => {
+  const [currX, currY] = currentNode.coordinates;
+  const [endX, endY] = endNode.coordinates;
+  return Math.abs(currX - endX) + Math.abs(currY - endY);
+};
+
+/*
 params: startNode; endNode; hashMap of nodes mapping to their respective previous nodes
 returns: shortest path between starting and ending node
 */
@@ -15,4 +25,6 @@ const reconstructPath = (endNode, prev) => {
   return path;
 };
 
-export default reconstructPath;
+export {findHeuristic, reconstructPath};
+
+

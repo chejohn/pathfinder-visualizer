@@ -1,5 +1,5 @@
 import breadthFirst from ".";
-import Graph from '../Graph';
+import Graph from '../../Graph';
 
 describe('breadth-first-search library', () => {
     const graph = Graph();

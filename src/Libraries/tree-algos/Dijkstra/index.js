@@ -1,5 +1,5 @@
 import PriorityQueue from '../PriorityQueue';
-import reconstructPath from '../Helpers/reconstructPath';
+import {reconstructPath} from '../../Helpers';
 
 /*
 params: startNode; priorityQueue
@@ -31,7 +31,7 @@ export const buildPQ = (startNode, priorityQueue) => {
 }
 
 const solve = (startNode, endNode) => {
-    const pq = PriorityQueue();
+    const pq = PriorityQueue('dijkstra');
     const prev = new Map();
     buildPQ(startNode, pq);
     for (let pqNode of pq.rep) {

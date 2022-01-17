@@ -1,5 +1,5 @@
 import depthFirst from ".";
-import Graph from '../Graph';
+import Graph from '../../Graph';
 
 describe('depth-first search library', () => {
     const graph = Graph();

@@ -1,11 +1,11 @@
-import {buildPQ} from './index';
+import {buildPQ} from '.';
 import PriorityQueue from '../PriorityQueue';
-import Graph from '../Graph';
-import dijkstra from './index';
+import Graph from '../../Graph';
+import dijkstra from '.';
 
 describe('Dijkstra library', () => {
     const graph = Graph();
-    const pq = PriorityQueue();
+    const pq = PriorityQueue('dijkstra');
     test('build priority queue method', () => {
         const startNode = graph.rep[0][5];
         for (let i = 0; i < 51; i++) {
