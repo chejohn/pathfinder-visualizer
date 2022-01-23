@@ -1,15 +1,10 @@
-import Graph from "./Libraries/Graph";
-import aStar from "./Libraries/A*";
-
-const graph = Graph();
-const startNode = graph.rep[0][50];
-const endNode = graph.rep[3][50];
-console.log(aStar(startNode, endNode));
-
+import GlobalStyle from "./Libraries/Components/GlobalStyles";
+import Header from "./Libraries/Components/Header";
 function App() {
   return (
     <div className="App">
-      hi
+      <GlobalStyle/>
+      <Header/>
     </div>
   );
 }
