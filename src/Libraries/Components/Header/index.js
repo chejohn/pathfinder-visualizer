@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Container, Console, DropDownContainer } from './Header.styles';
 
 const Header = () => {
-    
-
     return (
       <>
         <Container>

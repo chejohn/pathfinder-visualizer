@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-    height: 120px;
+    height: 115px;
     background-color: #34495e;
     padding: 20px 20px 0 20px;
     display: flex;
@@ -14,8 +14,8 @@ export const Container = styled.header`
         cursor: pointer;
     }
 
-    @media (max-width: 1000px) {
-        height: 180px;
+    @media (max-width: 1090px) {
+        height: 170px;
     }
 `;
 
