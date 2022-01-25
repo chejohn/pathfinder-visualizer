@@ -1,22 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-    height: 115px;
-    background-color: #34495e;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    position: relative;
-    justify-content: flex-start;
-    color: white;
-    
-    h3 {
-        position: absolute;
-        cursor: pointer;
-    }
+  height: 115px;
+  background-color: #34495e;
+  padding: 20px 20px 0 20px;
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  color: white;
 
-    @media (max-width: 1090px) {
-        height: 170px;
+  h3 {
+    position: absolute;
+    cursor: pointer;
+    transition: color 0.2s ease-out;
+    :hover {
+      color: var(--green-text);
     }
+  }
+
+  @media (max-width: 1090px) {
+    height: 170px;
+  }
 `;
 
 export const Console = styled.div`
