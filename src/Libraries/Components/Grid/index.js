@@ -7,9 +7,27 @@ const Grid = () => {
     const cells = [];
     for (let i = 0; i < 1020; i++) {
       let Img;
-      if (i === 471) Img = <img src={arrow} className="arrow" alt="arrow"/>
-      else if (i === 497) Img = <img src={target} className="target" alt="target"></img>
-      const Cell = Img ? <div key={i}>{Img}</div> : <div key={i}></div>
+      if (i === 471) {
+        Img = <img src={arrow} id="arrow" alt="arrow" draggable={true}
+        onDragStart={(e) => { 
+          e.dataTransfer.setData('text/plain', e.target.id);
+        }}
+        />
+      }
+      else if (i === 497) Img = <img src={target} id="target" alt="target" draggable={true}></img>
+      const Cell = Img ? <div onDrop={(e) => {
+        e.preventDefault();
+        console.log('was dropped')
+        const droppedElementID = e.dataTransfer.getData('text/plain');
+        const droppedElement = document.getElementById(droppedElementID);
+        e.target.appendChild(droppedElement);
+      }} key={i}>{Img}</div> : <div onDrop={(e) => {
+        e.preventDefault();
+        console.log('was dropped');
+        const droppedElementID = e.dataTransfer.getData('text/plain');
+        const droppedElement = document.getElementById(droppedElementID);
+        e.target.appendChild(droppedElement);
+      }} key={i}></div>
       cells.push(Cell);
     }
 

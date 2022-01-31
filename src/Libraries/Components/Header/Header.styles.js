@@ -36,7 +36,7 @@ export const Console = styled.div`
     transition: color 0.2s ease-out;
     position: relative;
 
-    :hover:not(.start-bttn, .drop-down) {
+    :hover:not(.start-bttn, .drop-down-bttn) {
       color: #1abc9c;
     }
 
@@ -51,7 +51,7 @@ export const Console = styled.div`
     }
   }
 
-  .drop-down {
+  .drop-down-bttn {
     :not(:focus):hover {
       color: var(--green-text);
     }
@@ -88,7 +88,7 @@ export const DropDownContainer = styled.div`
   flex-direction: column;
   padding: 5px;
 
-  button {
+  div {
     padding: 10px;
     align-self: start;
     border: none;

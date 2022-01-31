@@ -5,11 +5,11 @@ import Grid from "./Libraries/Components/Grid";
 
 function App() {
   return (
-    <div className="App">
-      <GlobalStyle/>
-      <Header/>
-      <Reference/>
-      <Grid/>
+    <div className='App'>
+      <GlobalStyle />
+      <Header />
+      <Reference />
+      <Grid />
     </div>
   );
 }

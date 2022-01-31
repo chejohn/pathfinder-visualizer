@@ -21,7 +21,7 @@ export const GridCells = styled.div`
     margin-left: -1px;
 
     @media (max-width: 1100px) {
-      .target, .arrow {
+      #target, #arrow {
         width: 14px;
       }
     }
