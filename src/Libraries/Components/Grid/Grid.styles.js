@@ -20,6 +20,10 @@ export const GridCells = styled.div`
     margin-top: -1px;
     margin-left: -1px;
 
+    .drag-start-effect {
+      opacity: 0;
+    }
+
     @media (max-width: 1100px) {
       #target, #arrow {
         width: 14px;
