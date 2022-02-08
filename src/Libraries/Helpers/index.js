@@ -25,6 +25,8 @@ const reconstructPath = (endNode, prev) => {
   return path;
 };
 
-export {findHeuristic, reconstructPath};
+const convertToDataID = ([x, y]) => x * 51 + y;
+
+export {findHeuristic, reconstructPath, convertToDataID};
 
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Legend} from './Reference.styles';
 import arrow from '../../../Assets/arrow.svg';
 import targetNode from '../../../Assets/target.svg';

@@ -1,7 +1,8 @@
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import { Container, Console, DropDownContainer } from './Header.styles';
+import dijkstra from '../../tree-algos/Dijkstra';
 
-const Header = () => {
+const Header = ({dispatch}) => {
   const oldActiveBttn = useRef(null);
   const [dropAlgos, setDropAlgos] = useState(false);
   const [dropMaze, setDropMaze] = useState(false);
@@ -93,6 +94,16 @@ const Header = () => {
     }
   }
 
+  const runPathFinder = () => {
+    switch(startBttnTxt) {
+      case "Visualize Dijkstra's!": 
+        dispatch('dijkstra');
+        break;
+      default:
+        break;
+    }
+  }
+  
   return (
     <>
       <Container>
@@ -140,7 +151,9 @@ const Header = () => {
             )}
           </button>
           <button className='console-bttn'>Add Bomb</button>
-          <button className='start-bttn console-bttn'>{startBttnTxt}</button>
+          <button className='start-bttn console-bttn'
+          onClick={runPathFinder}
+          >{startBttnTxt}</button>
           <button className='console-bttn'>Clear Board</button>
           <button className='console-bttn'>Clear Walls & Weights</button>
           <button className='console-bttn'>Clear Path</button>
